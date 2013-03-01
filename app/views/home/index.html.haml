@@ -1,0 +1,8 @@
+.container
+  .hero-unit#home-unit
+    %h1 
+      - if current_user
+        = "Ahoy, #{current_user.name}"
+      - else
+        = "Howdy, stranger."
+      
