@@ -64,9 +64,6 @@ class User < Neo4j::Rails::Model
          
          
  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-   puts "PROVIDER #{auth.provider}"
-     puts "UID : #{auth.uid}"
-   puts auth.inspect
    user = User.find(:provider => auth.provider, :uid => auth.uid)  
    unless user
      user = User.create!( name:auth.extra.raw_info.name,

@@ -3,25 +3,28 @@
 
 A quick overview of how this demo was made: 
 
-rails new myapp -m http://andreasronge.github.com/neo4j/rails.rb -O
-cd myapp/
+Make your rails app: 
+  rails new myapp -m http://andreasronge.github.com/neo4j/rails.rb -O 
+  cd myapp/ 
 
 Add to Gemfile: 
 
-gem 'devise-neo4j', :git => 'git://github.com/cfitz/devise-neo4j.git'
-gem 'omniauth'
-gem 'omniauth-facebook'
+  gem 'devise-neo4j', :git => 'git://github.com/cfitz/devise-neo4j.git'  
+  gem 'omniauth'  
+  gem 'omniauth-facebook'  
 
-bundle update
-rails generate devise:install --orm=neo4j
-bundle exec rails g neo4j:devise User
+Now Update it and run Devise generator: 
+  bundle update 
+  rails generate devise:install --orm=neo4j 
+  bundle exec rails g neo4j:devise User 
 
-Now pretty much follow the Devise guide found at https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview =>
-  Update the Routes to have devise_for Users. 
-  Update the User model to have the uid, name, and provider properties and make them attr_accessible. 
-  Add the find method to the User model. Look at the example in this app, since Neo4j.rb is slightly different than ActiveRecord. 
-  Add your FB app id and secret to the config/initializers/devise.rb
 
-You should be able to run the application and go to http://localhost:3000/users/sign_in and see the log in with Facebook provider link.
+Now pretty much follow the Devise guide found at https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview :
+  Update the Routes to have devise_for Users.  
+  Update the User model to have the uid, name, and provider properties and make them attr_accessible.  
+  Add the find method to the User model. Look at the example in this app, since Neo4j.rb is slightly different than ActiveRecord.  
+  Add your FB app id and secret to the config/initializers/devise.rb 
+
+You should be able to run the application and go to http://localhost:3000/users/sign_in and see the log in with Facebook provider link. 
 
 Let me know if you have any questions or issues...
